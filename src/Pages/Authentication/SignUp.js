@@ -1,14 +1,10 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
-
-const Login = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+const SignUp = () => {
   const {
     register,
     formState: { errors },
@@ -16,19 +12,23 @@ const Login = () => {
   } = useForm();
 
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-  
-  if (user || gUser) {
-    navigate(from, { replace: true });
-  }
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
+  const navigate=useNavigate()
   const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email, data.password);
+    createUserWithEmailAndPassword(data.email,data.password)
+    navigate('/appointment')
   };
+
   return (
-    <div className="card lg:w-1/4 w-ful bg-base-100 shadow-xl mx-auto lg:mt-10">
+    <div className="card lg:w-1/4 w-full bg-base-100 shadow-xl mx-auto lg:mt-10">
       <div className="card-body">
-        <h2 className="card-title justify-center">Login</h2>
+        <h2 className="card-title justify-center">Create Your Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="form-control">
           <label className="label">
@@ -51,15 +51,12 @@ const Login = () => {
             className="input input-bordered"
           />
           <label class="label">
-            
             {errors.email?.type === "required" && (
               <span class="label-text-alt">{errors.email.message}</span>
             )}
             {errors.email?.type === "pattern" && (
               <span class="label-text-alt">{errors.email.message}</span>
             )}
-            
-
           </label>
 
           <label className="label">
@@ -88,32 +85,20 @@ const Login = () => {
             {errors.password?.type === "minLength" && (
               <span class="label-text-alt">{errors.password.message}</span>
             )}
-            {error && (
-              <span class="label-text-alt">Incorrect email or password</span>
-            )}
           </label>
 
           
 
-          <Link to="" className="text-accent text-xs mt-1">
-            Forgot Password ?
-          </Link>
-
           <div className="card-actions justify-end">
-            {
-              loading || gLoading ?<button class="btn loading w-full mt-3 text-white">loading</button>:<button
-              type="submit"
-              className="btn btn-accent w-full mt-3 text-white"
-            >
-              Login
+            <button className="btn btn-accent w-full mt-3 text-white">
+              Sign Up
             </button>
-            }
           </div>
         </form>
         <p className="text-xs">
-          New to Doctors Portal ?{" "}
-          <Link to="/signup" className="text-secondary ">
-            Create Account
+          Have you any account ?{" "}
+          <Link to="/login" className="text-secondary ">
+            Login
           </Link>
         </p>
         <div className="flex flex-col w-full border-opacity-50">
@@ -130,4 +115,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
