@@ -1,18 +1,21 @@
 import React from "react";
 
 const Tool = ({tool}) => {
-
+const {name,image,description,minimum,available,price}=tool
   return (
     <div class="card w-96 bg-base-100 shadow-xl">
       <figure>
         <img
-          src={tool.image}
+          src={image}
           alt="tool"
         />
       </figure>
       <div class="card-body">
-        <h2 class="card-title">{tool.name}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <h2 class="card-title">{name}</h2>
+        <p>{description}</p>
+        <h3>{minimum}</h3>
+        <h3>{available}</h3>
+        <h3>{price}</h3>
         <div class="card-actions justify-end">
           <button class="btn btn-primary">Buy Now</button>
         </div>

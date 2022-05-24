@@ -1,15 +1,27 @@
 [
   {
     "name": "18V Cordless Finish Nailer",
-    "image": "https://i.ibb.co/LgYgf2y/tool1.jpg"
+    "image": "https://i.ibb.co/LgYgf2y/tool1.jpg",
+    "description":"The NT1865DA cordless finish nailer does not require a gas cartridge to operate. This results in a considerably lower running cost than gas-powered nailers.",
+    "minimum":100,
+    "available":1000000,
+    "price":99
   },
   {
     "name": "18V Cordless Work Light",
-    "image": "https://i.ibb.co/YW9yggQ/tool2.jpg"
+    "image": "https://i.ibb.co/YW9yggQ/tool2.jpg",
+    "description":"Depending on the battery condition and operating environment, the actual remaining battery charge may not match what is displayed on the remaining battery indicator. When UB18DD is used with a power cord, the indicator light remains off.",
+    "minimum":100,
+    "available":1000000,
+    "price":49
   },
   {
     "name": "18V Cordless Driver Drill",
-    "image": "https://i.ibb.co/ySxFM1M/tool3.jpg"
+    "image": "https://i.ibb.co/ySxFM1M/tool3.jpg",
+    "description":"Weight according to EPTA-Procedure 01/2014. The weight differs depending on the attached battery. The heaviest weight is measured with the BSL36B18 battery (sold separately).",
+    "minimum":100,
+    "available":1000000,
+    "price":79
   }
   
 ]
