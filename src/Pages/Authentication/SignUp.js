@@ -2,8 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import useToken from "../../Hooks/useToken";
 const SignUp = () => {
   const {
     register,
@@ -12,17 +13,13 @@ const SignUp = () => {
   } = useForm();
 
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth);
-
-  const navigate=useNavigate()
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [token] = useToken(user || gUser);
+  // const navigate = useNavigate();
   const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email,data.password)
-    navigate('/appointment')
+    createUserWithEmailAndPassword(data.email, data.password);
+    // navigate('/appointment')/
   };
 
   return (
@@ -86,8 +83,6 @@ const SignUp = () => {
               <span class="label-text-alt">{errors.password.message}</span>
             )}
           </label>
-
-          
 
           <div className="card-actions justify-end">
             <button className="btn btn-accent w-full mt-3 text-white">
