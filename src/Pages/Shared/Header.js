@@ -30,6 +30,11 @@ const Header = () => {
         <Link to="/testimonial">Reviews</Link>
       </li>
       <li>
+        {
+          user && <Link to="/dashboard">Dashboard</Link>
+        }
+      </li>
+      <li>
         <Link to="/contact">Contact Us</Link>
       </li>
     </>
