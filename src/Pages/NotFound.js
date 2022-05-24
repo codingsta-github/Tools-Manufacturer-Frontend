@@ -7,8 +7,8 @@ const NotFound = () => {
     navigate("/");
   };
   return (
-    <div className="not-found">
-      <h1>Oops!</h1>
+    <div className="not-found text-center flex justify-center flex-col items-center">
+      <h1 className="text-9xl">Oops!</h1>
       <p className="text-xl pb-5 text-danger">404-page not found</p>
       <p className="text-sm pb-3">
         The page you are looking for might have been removed <br /> had it's
