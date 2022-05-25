@@ -16,12 +16,14 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [token] = useToken(user || gUser);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(data.email, data.password);
-    // navigate('/appointment')/
+    
   };
-
+  if (token) {
+    navigate('/')
+  }
   return (
     <div className="card lg:w-1/4 w-full bg-base-100 shadow-xl mx-auto lg:mt-10">
       <div className="card-body">

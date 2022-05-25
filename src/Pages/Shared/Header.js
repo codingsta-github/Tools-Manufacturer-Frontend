@@ -10,6 +10,7 @@ import Loading from "./Loading";
 const Header = () => {
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
   };
   const [user, loading, error] = useAuthState(auth);
   if (loading) {

@@ -5,7 +5,7 @@ const Tool = ({tool}) => {
 const {name,image,description,minimum,available,price,_id}=tool
 const navigate = useNavigate();
   const purchase = () => {
-    navigate(`tools/${_id}`);
+    navigate(`tool/${_id}`);
   };
   return (
     <div class="card w-96 bg-base-100 shadow-xl">
