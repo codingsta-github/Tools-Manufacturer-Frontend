@@ -15,39 +15,34 @@ const Purchase = () => {
   }, []);
   const { name, image, description, minimum, available, price } = tool;
 
-
-const [user]=useAuthState(auth)
-console.log()
+  const [user] = useAuthState(auth);
+  console.log();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
-    const order={
-      tool:name,
-      email:user.email,
-      quantity:parseInt(data.quantity)
-    }
-    
-    
-    fetch('http://localhost:5000/order',{
-      method:'POST',
-      headers:{
-        'content-type':'application/json'
+    const order = {
+      image:image,
+      tool: name,
+      email: user.email,
+      price:parseInt(price),
+      quantity: parseInt(data.quantity),
+    };
+
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
       },
-      body:JSON.stringify(order)
+      body: JSON.stringify(order),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data)
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
-
-
-
-
-
 
   return (
     <div>
@@ -62,19 +57,17 @@ console.log()
       </div>
 
       <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="form-control">
+        <form onSubmit={handleSubmit(onSubmit)} className="form-control">
           <label className="label">
             <span className="label-text">Your Email</span>
           </label>
 
           <input
-            
             type="email"
             value={user.email}
             className="input input-bordered"
             readOnly
           />
-          
 
           <label className="label">
             <span className="label-text">Password</span>
@@ -90,10 +83,10 @@ console.log()
                 value: minimum,
                 message: `minimum order quantity ${minimum}`,
               },
-              max:{
+              max: {
                 value: available,
                 message: `maximum order quantity ${available}`,
-              }
+              },
             })}
             type="number"
             placeholder="Order quantity"
@@ -107,8 +100,6 @@ console.log()
               <span class="label-text-alt">{errors.quantity.message}</span>
             )}
           </label>
-
-          
 
           <div className="card-actions justify-end">
             <button className="btn btn-accent w-full mt-3 text-white">

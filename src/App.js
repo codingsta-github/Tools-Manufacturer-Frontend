@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import About from "./Pages/About";
 import Login from "./Pages/Authentication/Login";
@@ -10,9 +10,9 @@ import NotFound from "./Pages/NotFound";
 import Purchase from "./Pages/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import Header from "./Pages/Shared/Header";
-import Dashboard from './Pages/Dashboard/Dashboard';
-import MyReview from './Pages/Dashboard/MyReview';
-import MyOrder from './Pages/Dashboard/MyOrder';
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyReview from "./Pages/Dashboard/MyReview";
+import MyOrder from "./Pages/Dashboard/MyOrder";
 
 function App() {
   return (
@@ -24,16 +24,22 @@ function App() {
         <Route
           path="/tool/:_id"
           element={
-             <RequireAuth>
-             <Purchase/>
+            <RequireAuth>
+              <Purchase />
             </RequireAuth>
           }
         ></Route>
 
-
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
+        >
           <Route index element={<MyOrder></MyOrder>}></Route>
-          <Route path='myreview' element={<MyReview></MyReview>}></Route>
+          <Route path="myReview" element={<MyReview></MyReview>}></Route>
         </Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
