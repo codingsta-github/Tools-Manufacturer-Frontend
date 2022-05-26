@@ -4,7 +4,6 @@ const AddTool = () => {
   const newTool = { name: "jack" };
   const addTool = (e) => {
     e.preventDefault();
-    console.log(e.target.file);
 
     // fetch("http://localhost:5000/tool", {
     //   method: "POST",

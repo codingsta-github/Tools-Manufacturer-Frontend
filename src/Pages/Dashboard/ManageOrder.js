@@ -7,7 +7,6 @@ const ManageOrder = () => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
-  console.log(orders);
   return (
     <div>
       <div class="overflow-x-auto w-full">

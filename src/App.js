@@ -18,9 +18,9 @@ import AddTool from "./Pages/Dashboard/AddTool";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import ManageOrder from "./Pages/Dashboard/ManageOrder";
 import ManageTools from "./Pages/Dashboard/ManageTools";
+import Payment from "./Pages/Payment";
 
 function App() {
-  
   return (
     <div className="App ">
       <Header></Header>
@@ -35,7 +35,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-
+        <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route
           path="/dashboard"
           element={
@@ -45,8 +45,14 @@ function App() {
           }
         >
           <Route index element={<MyProfile></MyProfile>}></Route>
-          <Route path="manageOrder" element={<ManageOrder></ManageOrder>}></Route>
-          <Route path="manageTools" element={<ManageTools></ManageTools>}></Route>
+          <Route
+            path="manageOrder"
+            element={<ManageOrder></ManageOrder>}
+          ></Route>
+          <Route
+            path="manageTools"
+            element={<ManageTools></ManageTools>}
+          ></Route>
           <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
           <Route path="myReview" element={<MyReview></MyReview>}></Route>
           <Route path="users" element={<Users></Users>}></Route>

@@ -9,7 +9,6 @@ const ManageTools = () => {
           })
           .then(res => res.json())
           .then(data=>{
-            console.log(data)
             const remaining = tools.filter(tool => tool._id !== id)
             setTools(remaining);
           })

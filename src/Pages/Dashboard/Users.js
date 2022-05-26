@@ -1,9 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import auth from "../../firebase.init";
+import useAdmin from "../../Hooks/useAdmin";
 import Loading from "../Shared/Loading";
 
 const Users = () => {
-  const { data, isLoading ,refetch} = useQuery("users", () =>
+  const { data, isLoading, refetch } = useQuery("users", () =>
     fetch("http://localhost:5000/users").then((res) => res.json())
   );
   if (isLoading) {
@@ -11,18 +14,22 @@ const Users = () => {
   }
 
   const makeAdmin = (email) => {
-      fetch(`http://localhost:5000/user/admin/${email}`, {
-        method: "PUT",
-      })
-    .then(res=>res.json())
-    .then(data=>{
-        refetch()
-        console.log('updated',data)
+    fetch(`http://localhost:5000/user/admin/${email}`, {
+      method: "PUT",
     })
-    
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
+  };
   const removeUser = (email) => {
-    console.log("clicked", email);
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
   };
   return (
     <div>
@@ -46,20 +53,26 @@ const Users = () => {
                 <td>{user._id}</td>
                 <td>{user.email}</td>
                 <td className="text-center">
-                  {user.role !== 'admin' ?<button
-                    class="btn btn-xs"
-                    onClick={() => makeAdmin(user.email,refetch)}
-                  >Make Admin
-                  </button>:'Admin' }
-                  
+                  {user.role !== "admin" ? (
+                    <button
+                      class="btn btn-xs"
+                      onClick={() => makeAdmin(user.email, refetch)}
+                    >
+                      Make Admin
+                    </button>
+                  ) : (
+                    "Admin"
+                  )}
                 </td>
                 <td className="text-center">
-                  <button
-                    class="btn btn-xs"
-                    onClick={() => removeUser(user.email)}
-                  >
-                    Remove User
-                  </button>
+                  {user.role !== "admin" && (
+                    <button
+                      class="btn btn-xs"
+                      onClick={() => removeUser(user.email)}
+                    >
+                      Remove User
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

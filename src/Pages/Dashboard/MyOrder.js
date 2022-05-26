@@ -28,7 +28,6 @@ const MyOrder = () => {
     })
     .then(res => res.json())
     .then(data=>{
-      console.log(data)
       const remaining = MyOrders.filter(tool => tool._id !== id)
       setMyOrders(remaining);
     })

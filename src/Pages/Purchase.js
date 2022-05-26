@@ -16,7 +16,6 @@ const Purchase = () => {
   const { name, image, description, minimum, available, price } = tool;
 
   const [user] = useAuthState(auth);
-  console.log();
   const {
     register,
     formState: { errors },
@@ -42,7 +41,6 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
       });
   };
 
