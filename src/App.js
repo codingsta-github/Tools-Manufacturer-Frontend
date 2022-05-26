@@ -35,7 +35,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="/payment" element={<Payment></Payment>}></Route>
+        <Route path="/payment/:_id" element={<Payment></Payment>}></Route>
         <Route
           path="/dashboard"
           element={

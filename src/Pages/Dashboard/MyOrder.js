@@ -82,7 +82,7 @@ const MyOrder = () => {
               <td>
                 
                 {
-                  MyOrder.payment==="unpaid" ? <Link to="/payment"><button className="btn btn-xs">Make Payment</button></Link>:"paid"
+                  MyOrder.payment==="unpaid" ? <Link to={`/payment/${MyOrder._id}`}><button className="btn btn-xs">Make Payment</button></Link>:"paid"
                 }
                 </td>
               <td><button className="btn btn-xs" onClick={()=>cancelOrder(MyOrder._id)}>cancel order</button></td>
