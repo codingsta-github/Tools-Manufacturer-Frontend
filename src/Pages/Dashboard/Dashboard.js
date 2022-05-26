@@ -5,8 +5,8 @@ import auth from "../../firebase.init";
 import useAdmin from "../../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const [user]=useAuthState(auth)
-  const [admin]=useAdmin(user)
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div class="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -24,25 +24,41 @@ const Dashboard = () => {
         <label for="my-drawer-2" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
-          
+
           <li>
-            <Link to='/dashboard'>My Profile</Link>
+            <Link to="/dashboard">My Profile</Link>
           </li>
-          {admin && <li>
-            <Link to='/dashboard/ManageOrder'>Manage Order</Link>
-          </li>}
-          {!admin && <li>
-            <Link to='/dashboard/myOrder'>My Order</Link>
-          </li>}
-          {!admin && <li>
-            <Link to='/dashboard/myReview'>My Review</Link>
-          </li>}
-          {admin && <li>
-          <Link to='/dashboard/users'>All users</Link>
-          </li>}
-          {admin && <li>
-          <Link to='/dashboard/addTool'>Add Product</Link>
-          </li>}
+          {admin && (
+            <li>
+              <Link to="/dashboard/manageOrder">Manage Order</Link>
+            </li>
+          )}
+          {admin && (
+            <li>
+              <Link to="/dashboard/manageTools">Manage Tools</Link>
+            </li>
+          )}
+
+          {admin && (
+            <li>
+              <Link to="/dashboard/users">All users</Link>
+            </li>
+          )}
+          {admin && (
+            <li>
+              <Link to="/dashboard/addTool">Add Tools</Link>
+            </li>
+          )}
+          {!admin && (
+            <li>
+              <Link to="/dashboard/myOrder">My Order</Link>
+            </li>
+          )}
+          {!admin && (
+            <li>
+              <Link to="/dashboard/myReview">My Review</Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

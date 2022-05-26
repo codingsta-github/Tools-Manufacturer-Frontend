@@ -22,6 +22,30 @@
     "minimum":100,
     "available":1000000,
     "price":79
+  },
+  {
+    "name": "18V Cordless Driver Drill",
+    "image": "https://i.ibb.co/ySxFM1M/tool3.jpg",
+    "description":"Weight according to EPTA-Procedure 01/2014. The weight differs depending on the attached battery. The heaviest weight is measured with the BSL36B18 battery (sold separately).",
+    "minimum":100,
+    "available":1000000,
+    "price":79
+  },
+  {
+    "name": "18V Cordless Driver Drill",
+    "image": "https://i.ibb.co/ySxFM1M/tool3.jpg",
+    "description":"Weight according to EPTA-Procedure 01/2014. The weight differs depending on the attached battery. The heaviest weight is measured with the BSL36B18 battery (sold separately).",
+    "minimum":100,
+    "available":1000000,
+    "price":79
+  },
+  {
+    "name": "18V Cordless Driver Drill",
+    "image": "https://i.ibb.co/ySxFM1M/tool3.jpg",
+    "description":"Weight according to EPTA-Procedure 01/2014. The weight differs depending on the attached battery. The heaviest weight is measured with the BSL36B18 battery (sold separately).",
+    "minimum":100,
+    "available":1000000,
+    "price":79
   }
   
 ]

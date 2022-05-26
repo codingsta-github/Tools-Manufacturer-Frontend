@@ -21,6 +21,7 @@ const ManageOrder = () => {
               <th>Quantity</th>
               <th>Price</th>
               <th>Total Price</th>
+              <th>Payment</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -46,6 +47,8 @@ const ManageOrder = () => {
                 <td>{order.price}</td>
                 <td>{order.quantity}</td>
                 <td>{order.price * order.quantity}</td>
+                <td>{order.payment}</td>
+                <td>{order.status}</td>
               </tr>
             ))}
           </tbody>

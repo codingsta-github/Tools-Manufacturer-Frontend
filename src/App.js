@@ -17,6 +17,7 @@ import Users from "./Pages/Dashboard/Users";
 import AddTool from "./Pages/Dashboard/AddTool";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import ManageOrder from "./Pages/Dashboard/ManageOrder";
+import ManageTools from "./Pages/Dashboard/ManageTools";
 
 function App() {
   
@@ -44,7 +45,8 @@ function App() {
           }
         >
           <Route index element={<MyProfile></MyProfile>}></Route>
-          <Route path="ManageOrder" element={<ManageOrder></ManageOrder>}></Route>
+          <Route path="manageOrder" element={<ManageOrder></ManageOrder>}></Route>
+          <Route path="manageTools" element={<ManageTools></ManageTools>}></Route>
           <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
           <Route path="myReview" element={<MyReview></MyReview>}></Route>
           <Route path="users" element={<Users></Users>}></Route>

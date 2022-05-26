@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
+import useTools from "../../Hooks/useTools";
 import Tool from "./Tool";
 
 
 const Tools = () => {
-  const [tools, setTools] = useState([]);
-  useEffect(()=>{
-    fetch("http://localhost:5000/tools")
-    .then((res) => res.json())
-    .then((data) => setTools(data));
-  },[])
-console.log(tools)
+  const [tools]=useTools()
   return (
     <div className="max-w-screen-2xl mx-auto grid grid-cols-3 gap-5">
       {

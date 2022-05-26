@@ -23,7 +23,7 @@ const MyOrder = () => {
 
   const cancelOrder=(id)=>{
     
-    fetch(`http://localhost:5000/tool/${id}`, {
+    fetch(`http://localhost:5000/myOrder/${id}`, {
       method: "DELETE",
     })
     .then(res => res.json())
