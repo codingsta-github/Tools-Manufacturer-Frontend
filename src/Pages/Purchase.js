@@ -29,6 +29,8 @@ const Purchase = () => {
       email: user.email,
       price:parseInt(price),
       quantity: parseInt(data.quantity),
+      payment:'unpaid',
+      status:'pending'
     };
 
     fetch("http://localhost:5000/order", {

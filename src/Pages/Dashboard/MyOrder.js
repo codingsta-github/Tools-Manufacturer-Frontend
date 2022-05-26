@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyOrder = () => {
@@ -11,14 +12,33 @@ const MyOrder = () => {
     fetch(`http://localhost:5000/myOrders?email=${user.email}`, {
       method: "GET",
       headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      }
     })
       .then((res) => res.json())
       .then((data) => {
         setMyOrders(data);
       });
   }, [user]);
+
+  const cancelOrder=(id)=>{
+    
+    fetch(`http://localhost:5000/tool/${id}`, {
+      method: "DELETE",
+    })
+    .then(res => res.json())
+    .then(data=>{
+      console.log(data)
+      const remaining = MyOrders.filter(tool => tool._id !== id)
+      setMyOrders(remaining);
+    })
+  }
+  
+  
+    
+   
+
+    
 
   return (
     <div>
@@ -27,10 +47,12 @@ const MyOrder = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
+              <th></th>
               <th>Tool</th>
               <th>Quantity</th>
               <th>Price</th>
               <th>Total Price</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -58,6 +80,13 @@ const MyOrder = () => {
               <td>{MyOrder.price}</td>
               <td>{MyOrder.quantity}</td>
               <td>{MyOrder.price*MyOrder.quantity}</td>
+              <td>
+                
+                {
+                  MyOrder.payment==="unpaid" ? <Link to="/payment"><button className="btn btn-xs">Make Payment</button></Link>:"paid"
+                }
+                </td>
+              <td><button className="btn btn-xs" onClick={()=>cancelOrder(MyOrder._id)}>cancel order</button></td>
             </tr>
             ))}
           </tbody>
@@ -65,6 +94,6 @@ const MyOrder = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MyOrder;
