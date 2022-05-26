@@ -19,6 +19,8 @@ import MyProfile from "./Pages/Dashboard/MyProfile";
 import ManageOrder from "./Pages/Dashboard/ManageOrder";
 import ManageTools from "./Pages/Dashboard/ManageTools";
 import Payment from "./Pages/Payment";
+import MyPortfolio from "./Pages/Home/MyPortfolio";
+import Blogs from "./Pages/Home/Blogs";
 
 function App() {
   return (
@@ -58,6 +60,8 @@ function App() {
           <Route path="users" element={<Users></Users>}></Route>
           <Route path="addTool" element={<AddTool></AddTool>}></Route>
         </Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/myPortfolio" element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
