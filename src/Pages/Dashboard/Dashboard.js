@@ -26,13 +26,22 @@ const Dashboard = () => {
           {/* <!-- Sidebar content here --> */}
           
           <li>
-            <Link to='/dashboard'>My Order</Link>
-          </li>
-          <li>
-            <Link to='/dashboard/myReview'>My Review</Link>
+            <Link to='/dashboard'>My Profile</Link>
           </li>
           {admin && <li>
+            <Link to='/dashboard/ManageOrder'>Manage Order</Link>
+          </li>}
+          {!admin && <li>
+            <Link to='/dashboard/myOrder'>My Order</Link>
+          </li>}
+          {!admin && <li>
+            <Link to='/dashboard/myReview'>My Review</Link>
+          </li>}
+          {admin && <li>
           <Link to='/dashboard/users'>All users</Link>
+          </li>}
+          {admin && <li>
+          <Link to='/dashboard/addTool'>Add Product</Link>
           </li>}
         </ul>
       </div>

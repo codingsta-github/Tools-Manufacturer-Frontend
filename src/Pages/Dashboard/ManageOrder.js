@@ -1,42 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 
-const MyOrder = () => {
-  const [user] = useAuthState(auth);
-
-  const [MyOrders, setMyOrders] = useState([]);
-
+const ManageOrder = () => {
+  const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch("http://localhost:5000/orders")
       .then((res) => res.json())
-      .then((data) => {
-        setMyOrders(data);
-      });
-  }, [user]);
-
+      .then((data) => setOrders(data));
+  }, []);
+  console.log(orders);
   return (
-    <div>
-      <div class="overflow-x-auto w-full">
+  <div>
+<div class="overflow-x-auto w-full">
         <table class="table w-full">
           {/* <!-- head --> */}
           <thead>
             <tr>
+              <th></th>
               <th>Tool</th>
+              <th>email</th>
               <th>Quantity</th>
               <th>Price</th>
               <th>Total Price</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            {MyOrders.map(MyOrder=>(
+            {orders.map(order=>(
               <tr>
               
               <td>
@@ -44,7 +35,7 @@ const MyOrder = () => {
                   <div class="avatar">
                     <div class="mask mask-squircle w-12 h-12">
                       <img
-                        src={MyOrder.image}
+                        src={order.image}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>
@@ -53,18 +44,19 @@ const MyOrder = () => {
                 </div>
               </td>
               <td>
-                {MyOrder.tool}
+                {order.tool}
               </td>
-              <td>{MyOrder.price}</td>
-              <td>{MyOrder.quantity}</td>
-              <td>{MyOrder.price*MyOrder.quantity}</td>
+              <td>{order.email}</td>
+              <td>{order.price}</td>
+              <td>{order.quantity}</td>
+              <td>{order.price*order.quantity}</td>
             </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </div>
+  </div>
   );
 };
 
-export default MyOrder;
+export default ManageOrder;

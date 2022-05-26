@@ -14,6 +14,9 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyReview from "./Pages/Dashboard/MyReview";
 import MyOrder from "./Pages/Dashboard/MyOrder";
 import Users from "./Pages/Dashboard/Users";
+import AddTool from "./Pages/Dashboard/AddTool";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import ManageOrder from "./Pages/Dashboard/ManageOrder";
 
 function App() {
   
@@ -40,9 +43,12 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="ManageOrder" element={<ManageOrder></ManageOrder>}></Route>
+          <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
           <Route path="myReview" element={<MyReview></MyReview>}></Route>
           <Route path="users" element={<Users></Users>}></Route>
+          <Route path="addTool" element={<AddTool></AddTool>}></Route>
         </Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
