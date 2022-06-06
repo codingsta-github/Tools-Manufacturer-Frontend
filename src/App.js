@@ -1,10 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import About from "./Pages/About";
 import Login from "./Pages/Authentication/Login";
 import RequireAuth from "./Pages/Authentication/RequireAuth";
 import SignUp from "./Pages/Authentication/SignUp";
-import Contact from "./Pages/Contact";
 import Home from "./Pages/Home/Home";
 import NotFound from "./Pages/NotFound";
 import Purchase from "./Pages/Purchase";
@@ -21,6 +19,7 @@ import ManageTools from "./Pages/Dashboard/ManageTools";
 import Payment from "./Pages/Payment";
 import MyPortfolio from "./Pages/Home/MyPortfolio";
 import Blogs from "./Pages/Home/Blogs";
+import Reviews from "./Pages/Reviews";
 
 function App() {
   return (
@@ -28,7 +27,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route
           path="/tool/:_id"
           element={
@@ -62,7 +61,6 @@ function App() {
         </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/myPortfolio" element={<MyPortfolio></MyPortfolio>}></Route>
-        <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

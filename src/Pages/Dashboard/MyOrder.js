@@ -9,7 +9,7 @@ const MyOrder = () => {
   const [MyOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders?email=${user.email}`, {
+    fetch(`https://mercedez-warehouse.herokuapp.com/myOrders?email=${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -23,7 +23,7 @@ const MyOrder = () => {
 
   const cancelOrder=(id)=>{
     
-    fetch(`http://localhost:5000/myOrder/${id}`, {
+    fetch(`https://mercedez-warehouse.herokuapp.com/myOrder/${id}`, {
       method: "DELETE",
     })
     .then(res => res.json())

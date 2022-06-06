@@ -22,7 +22,7 @@ const Header = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/reviews">Reviews</Link>
       </li>
       <li>
         <Link to="/blogs">Blogs</Link>
@@ -35,9 +35,6 @@ const Header = () => {
           user && <Link to="/dashboard">Dashboard</Link>
         }
       </li>
-      <li>
-        <Link to="/contact">Contact Us</Link>
-      </li>
     </>
   );
   
@@ -45,7 +42,7 @@ const Header = () => {
     <div className="navbar bg-base-100 justify-between uppercase  font-bold py-3 px-5">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex="0" className="btn btn-ghost lg:hidden">
+          <label tabIndex="0" className="btn btn-ghost lg:hidden sm:p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -68,8 +65,8 @@ const Header = () => {
             {menu}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case 2xl:text-5xl xl:text-2xl lg:text-xl md:text-lg font-bold">
-          Koki Holdings Co.
+        <Link to="/" className="btn btn-ghost normal-case 2xl:text-4xl xl:text-2xl lg:text-lg md:text-md font-bold">
+          HiKOKI Holdings Co.
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

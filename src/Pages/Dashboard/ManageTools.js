@@ -4,7 +4,7 @@ import useTools from '../../Hooks/useTools';
 const ManageTools = () => {
     const [tools,setTools]=useTools()
     const Delete=(id)=>{
-        fetch(`http://localhost:5000/tool/${id}`, {
+        fetch(`https://mercedez-warehouse.herokuapp.com/tool/${id}`, {
             method: "DELETE",
           })
           .then(res => res.json())

@@ -2,7 +2,7 @@ import React from "react";
 
 const MyPortfolio = () => {
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto">
       <h1>portfolio</h1>
       <h1>Name: Sheikh Tofayel Ahmed</h1>
       <h4>Email: codingsta@protonmail.com</h4>
@@ -44,8 +44,19 @@ const MyPortfolio = () => {
             design.
           </li>
         </ul>{" "}
-        list of technologies or skills you have as a web developer. Add links of
-        three of your projects (live website links).
+       <p className="my-10">
+       3 of my best website:
+       <ul>
+         <li><a href="http://warehouse-management-b22f6.web.app/">http://warehouse-management-b22f6.web.app/ </a></li>
+         <li><a href="https://guru-mann-fitness-55bf6.web.app/">https://guru-mann-fitness-55bf6.web.app/ </a></li>
+         <li><a href="https://tools-manufacturer-88bc3.web.app/">https://tools-manufacturer-88bc3.web.app/</a></li>
+       </ul>
+       
+       
+       
+       </p>
+
+
       </p>
     </div>
   );

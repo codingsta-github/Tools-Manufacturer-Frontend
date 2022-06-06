@@ -6,7 +6,7 @@ import Tool from "./Tool";
 const Tools = () => {
   const [tools]=useTools()
   return (
-    <div className="max-w-screen-2xl mx-auto grid grid-cols-3 gap-5">
+    <div className="max-w-screen-2xl mx-auto grid grid-cols-1">
       {
           tools.map(tool=><Tool tool={tool} key={tool._id}></Tool>)
       }
