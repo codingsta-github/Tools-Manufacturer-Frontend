@@ -4,7 +4,6 @@ import Login from "./Pages/Authentication/Login";
 import RequireAuth from "./Pages/Authentication/RequireAuth";
 import SignUp from "./Pages/Authentication/SignUp";
 import Home from "./Pages/Home/Home";
-import NotFound from "./Pages/NotFound";
 import Purchase from "./Pages/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import Header from "./Pages/Shared/Header";
@@ -20,6 +19,7 @@ import Payment from "./Pages/Payment";
 import MyPortfolio from "./Pages/Home/MyPortfolio";
 import Blogs from "./Pages/Home/Blogs";
 import Reviews from "./Pages/Reviews";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (

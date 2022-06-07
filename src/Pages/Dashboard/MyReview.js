@@ -20,7 +20,7 @@ const MyReview = () => {
       review: data.review,
     };
     console.log(review);
-    fetch("https://mercedez-warehouse.herokuapp.com/review", {
+    fetch("https://shielded-dusk-13129.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

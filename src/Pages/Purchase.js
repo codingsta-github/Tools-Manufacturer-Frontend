@@ -7,7 +7,7 @@ const Purchase = () => {
 
   const [tool, setTool] = useState({});
   useEffect(() => {
-    fetch(`https://mercedez-warehouse.herokuapp.com/tool/${_id}`)
+    fetch(`https://shielded-dusk-13129.herokuapp.com/tool/${_id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, [_id]);

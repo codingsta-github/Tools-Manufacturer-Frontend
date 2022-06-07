@@ -10,7 +10,7 @@ const Payment = () => {
 
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`https://mercedez-warehouse.herokuapp.com/order/${_id}`)
+    fetch(`https://shielded-dusk-13129.herokuapp.com/order/${_id}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);

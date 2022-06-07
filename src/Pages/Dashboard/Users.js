@@ -7,14 +7,14 @@ import Loading from "../Shared/Loading";
 
 const Users = () => {
   const { data, isLoading, refetch } = useQuery("users", () =>
-    fetch("https://mercedez-warehouse.herokuapp.com/users").then((res) => res.json())
+    fetch("https://shielded-dusk-13129.herokuapp.com/users").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   const makeAdmin = (email) => {
-    fetch(`https://mercedez-warehouse.herokuapp.com/user/admin/${email}`, {
+    fetch(`https://shielded-dusk-13129.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -23,7 +23,7 @@ const Users = () => {
       });
   };
   const removeUser = (email) => {
-    fetch(`https://mercedez-warehouse.herokuapp.com/user/${email}`, {
+    fetch(`https://shielded-dusk-13129.herokuapp.com/user/${email}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

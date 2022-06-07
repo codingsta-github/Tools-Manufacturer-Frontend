@@ -30,7 +30,7 @@ const OrderModal = ({ tool }) => {
       status: "pending",
     };
 
-    fetch("https://mercedez-warehouse.herokuapp.com/order", {
+    fetch("https://shielded-dusk-13129.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,7 +4,7 @@ const useAdmin = (user) => {
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
     const email = user?.email;
-    fetch(`https://mercedez-warehouse.herokuapp.com/admin/${email}`)
+    fetch(`https://shielded-dusk-13129.herokuapp.com/admin/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.admin);

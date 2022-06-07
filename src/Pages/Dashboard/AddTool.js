@@ -5,7 +5,7 @@ const AddTool = () => {
   const addTool = (e) => {
     e.preventDefault();
 
-    // fetch("https://mercedez-warehouse.herokuapp.com/tool", {
+    // fetch("https://shielded-dusk-13129.herokuapp.com/tool", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",
